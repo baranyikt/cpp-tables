@@ -53,8 +53,8 @@ Notes:
 3) ssize_t and std::streamsize can be thought to be the same, and the same stands for rsize_t and size_t also.
 
 4) 
-- C_DM_TR:	ISO C Dynamic Memory TR extensions: available if "__STDC_ALLOC_LIB__", and then can be switched ON using "__STDC_WANT_LIB_EXT2__" 1 before #include <cstdio>
-- C_BOUNDS:	Bounds checked extensions: available if "__STDC_LIB_EXT1__", and than can be switched ON using "__STDC_WANT_LIB_EXT1__" 1 before #include <cstdio>
+- C_DM_TR:	ISO C Dynamic Memory TR extensions: available if \__STDC_ALLOC_LIB__, and then can be switched ON using \__STDC_WANT_LIB_EXT2__ 1 before #include <cstdio>
+- C_BOUNDS:	Bounds checked extensions: available if \__STDC_LIB_EXT1__, and than can be switched ON using \__STDC_WANT_LIB_EXT1__ 1 before #include <cstdio>
 
 5) std::istream::operator>> functions have their [std namespace function template versions](https://en.cppreference.com/w/cpp/io/basic_istream/operator_gtgt2) (std::operator>>) too
 
