@@ -11,7 +11,9 @@
 | [_getch](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/getch-getwch?view=vs-2019) | conio | | *< more ISO compatible names for getch()/getche()/kbhit() >* | int _getch() |
 | [_getche](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/getche-getwche?view=vs-2019) | conio | | *< though un-underscored version could be more portable, cf. [ncurses](http://www.gnu.org/software/ncurses/ncurses.html) >* | int _getche() |
 | [_kbhit](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/kbhit?view=vs-2019) | conio | |  | int _kbhit() |
-| [_getchar_nolock](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/getchar-nolock-getwchar-nolock?view=vs-2019)/[_getch_nolock](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/getch-nolock-getwch-nolock?view=vs-2019)/[_getche_nolock](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/getche-nolock-getwche-nolock?view=vs-2019) | stdio | | "nolock" is for "no protection against interference by other threads" (could be faster a bit) | int _getch_nolock() (and so on) |
+| [_getchar_nolock](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/getchar-nolock-getwchar-nolock?view=vs-2019) | stdio | | "nolock" is for "no protection against interference by other threads" (could be faster a bit) | int _getchar_nolock() |
+| [_getch_nolock](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/getch-nolock-getwch-nolock?view=vs-2019) | stdio | | "nolock" is for "no protection against interference by other threads" (could be faster a bit) | int _getch_nolock() |
+| [_getche_nolock](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/getche-nolock-getwche-nolock?view=vs-2019) | stdio | | "nolock" is for "no protection against interference by other threads" (could be faster a bit) | int _getche_nolock() |
 ||
 | [gets](https://en.cppreference.com/w/cpp/io/c/gets) | stdio | C89 | reads chars from stdin into char* until EOL/EOF, regardless of buffer size. **Do not use it**. Removed in C11.| char * gets( char *str ) |
 | [gets_s](https://en.cppreference.com/w/c/io/gets) | stdio | C11 | reads chars from stdin into char* until EOL/EOF, bounds-checked version [EOL extracted and dropped, *not* appended] | char * gets_s(char*, rsize_t) |
@@ -51,8 +53,8 @@ Notes:
 3) ssize_t and std::streamsize can be thought to be the same, and the same stands for rsize_t and size_t also.
 
 4) 
-- C_DM_TR:	ISO C Dynamic Memory TR extensions: available if __STDC_ALLOC_LIB__, and then can be switched ON using __STDC_WANT_LIB_EXT2__ 1 before #include <cstdio>
-- C_BOUNDS:	Bounds checked extensions: available if __STDC_LIB_EXT1__, and than can be switched ON using __STDC_WANT_LIB_EXT1__ 1 before #include <cstdio>
+- C_DM_TR:	ISO C Dynamic Memory TR extensions: available if "__STDC_ALLOC_LIB__", and then can be switched ON using "__STDC_WANT_LIB_EXT2__" 1 before #include <cstdio>
+- C_BOUNDS:	Bounds checked extensions: available if "__STDC_LIB_EXT1__", and than can be switched ON using "__STDC_WANT_LIB_EXT1__" 1 before #include <cstdio>
 
 5) std::istream::operator>> functions have their [std namespace function template versions](https://en.cppreference.com/w/cpp/io/basic_istream/operator_gtgt2) (std::operator>>) too
 
