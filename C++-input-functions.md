@@ -41,6 +41,7 @@
 | [istream::operator>>(streambuf&[, char_type delim])](https://en.cppreference.com/w/cpp/io/basic_istream/operator_gtgt) | istream | C++98 | reads all available data (or data up to delim) to another stream | istream& operator>>( std::basic_streambuf<char_type,Traits>* sb ) |
 
 Notes: 
+
 1)
 - istream stands for std::basic_istream<char_type,Traits> everywhere, and
 - string is for std::basic_string<char_type>
@@ -86,13 +87,20 @@ Notes:
 | [detdelim](https://en.cppreference.com/w/c/experimental/dynamic/getline) | [getwdelim](https://en.cppreference.com/w/c/experimental/dynamic/getline) | stdio |
 
 Links:
-[ see Notes section in https://en.cppreference.com/w/cpp/string/basic_string/getline ]
-[ https://en.cppreference.com/w/c/experimental/dynamic ]
-[ https://stackoverflow.com/questions/12008979/differences-between-getch-and-getch ]
-[ https://stackoverflow.com/questions/814975/getch-is-deprecated ]
-[ https://docs.microsoft.com/en-us/cpp/error-messages/compiler-warnings/compiler-warning-level-3-c4996?view=vs-2019 ]
-[ https://www.geeksforgeeks.org/difference-getchar-getch-getc-getche/ ]
-[ C++ named requirements:UnformattedInputFunction https://en.cppreference.com/w/cpp/named_req/UnformattedInputFunction ]
-[ C++ named requirements:FormattedInputFunction https://en.cppreference.com/w/cpp/named_req/FormattedInputFunction ]
 
+[ see Notes section in https://en.cppreference.com/w/cpp/string/basic_string/getline ]
+
+[ https://en.cppreference.com/w/c/experimental/dynamic ]
+
+[ https://stackoverflow.com/questions/12008979/differences-between-getch-and-getch ]
+
+[ https://stackoverflow.com/questions/814975/getch-is-deprecated ]
+
+[ https://docs.microsoft.com/en-us/cpp/error-messages/compiler-warnings/compiler-warning-level-3-c4996?view=vs-2019 ]
+
+[ https://www.geeksforgeeks.org/difference-getchar-getch-getc-getche/ ]
+
+[ C++ named requirements:UnformattedInputFunction https://en.cppreference.com/w/cpp/named_req/UnformattedInputFunction ]
+
+[ C++ named requirements:FormattedInputFunction https://en.cppreference.com/w/cpp/named_req/FormattedInputFunction ]
 
