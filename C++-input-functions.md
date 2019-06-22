@@ -16,14 +16,14 @@
 | [_getche_nolock](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/getche-nolock-getwche-nolock?view=vs-2019) | stdio | | "nolock" is for "no protection against interference by other threads" (could be faster a bit) | int _getche_nolock() |
 ||
 | [gets](https://en.cppreference.com/w/cpp/io/c/gets) | stdio | C89 | reads chars from stdin into char* until EOL/EOF, regardless of buffer size. **Do not use it**. Removed in C11.| char * gets( char *str ) |
-| [gets_s](https://en.cppreference.com/w/c/io/gets) | stdio | C11 | reads chars from stdin into char* until EOL/EOF, bounds-checked version [EOL extracted and dropped, *not* appended] | char * gets_s(char*, rsize_t) |
+| [gets_s](https://en.cppreference.com/w/c/io/gets) | stdio | C11/C_BOUNDS | reads chars from stdin into char* until EOL/EOF, bounds-checked version [EOL extracted and dropped, *not* appended] | char * gets_s(char*, rsize_t) |
 | [fgets](https://en.cppreference.com/w/c/io/fgets) | stdio | C89 | reads chars from FILE into char* until EOL/EOF (bounds-checked)	[EOL extracted and appended to input] | char * fgets(char*, int count, FILE*) |
 | [scanf](https://en.cppreference.com/w/c/io/fscanf) | stdio | C89 | reads formatted from stdin [strings are delimited by any whitespace, which are not extracted and not appended] | int scanf(const char* format, ... ) |
 | [fscanf](https://en.cppreference.com/w/c/io/fscanf) | stdio | C89 | reads formatted from FILE | int fscanf(FILE*, const char* format, ... ) |
 | [sscanf](https://en.cppreference.com/w/c/io/fscanf) | stdio | C89 | reads formatted from char* | int sscanf(const char * buffer, const char * format, ... ) |
-| [scanf_s](https://en.cppreference.com/w/c/io/fscanf) | stdio | C11 | *< bounds-checked versions of the above three >* | |
-| [fscanf_s](https://en.cppreference.com/w/c/io/fscanf) | stdio | C11 | ||
-| [sscanf_s](https://en.cppreference.com/w/c/io/fscanf) | stdio | C11 | ||
+| [scanf_s](https://en.cppreference.com/w/c/io/fscanf) | stdio | C11/C_BOUNDS | *< bounds-checked versions of the above three >* | |
+| [fscanf_s](https://en.cppreference.com/w/c/io/fscanf) | stdio | C11/C_BOUNDS | ||
+| [sscanf_s](https://en.cppreference.com/w/c/io/fscanf) | stdio | C11/C_BOUNDS | ||
 | [getline](https://en.cppreference.com/w/c/experimental/dynamic/getline) | stdio | DM:TR | allocates/reallocates char** according to the size of chars to read (autogrow) [EOL extracted & appended] | ssize_t getline(char**, size_t*, FILE*) [[like a reallocating fgets()]] |
 | [getdelim](https://en.cppreference.com/w/c/experimental/dynamic/getline) | stdio | DM:TR | *< same as getline, just delimiter can be chosen >* | ssize_t getdelim(char**, size_t*, int delimiter, FILE*) |
 | [istream::peek](https://en.cppreference.com/w/cpp/io/basic_istream/peek) | istream | C++98 | reads one char from stream if possible without extracting it (or returns EOF), called with cin: waits for EOL like getchar() | int istream::peek() |
@@ -53,8 +53,10 @@ Notes:
 3) ssize_t and std::streamsize can be thought to be the same, and the same stands for rsize_t and size_t also.
 
 4) 
-- C_DM_TR:	ISO C Dynamic Memory TR extensions: available if \__STDC_ALLOC_LIB__, and then can be switched ON using \__STDC_WANT_LIB_EXT2__ 1 before #include <cstdio>
+- DM:TR:	ISO C Dynamic Memory TR extensions: available if \__STDC_ALLOC_LIB__, and then can be switched ON using \__STDC_WANT_LIB_EXT2__ 1 before #include <cstdio>
 - C_BOUNDS:	Bounds checked extensions: available if \__STDC_LIB_EXT1__, and than can be switched ON using \__STDC_WANT_LIB_EXT1__ 1 before #include <cstdio>
+
+(these all prefixed & suffixed by double underscores)
 
 5) std::istream::operator>> functions have their [std namespace function template versions](https://en.cppreference.com/w/cpp/io/basic_istream/operator_gtgt2) (std::operator>>) too
 
